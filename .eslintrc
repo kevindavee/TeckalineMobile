@@ -1,0 +1,12 @@
+{
+    "extends": "rallycoding",
+    "rules": {
+        "arrow-body-style":"off",
+        "max-len":"off",
+        "global-require": "off",
+        "no-unused-expressions":"off",
+        "no-useless-escape":"off",
+        "newline-per-chained-call":"off",
+        "no-case-declarations":"off"
+    }
+}
