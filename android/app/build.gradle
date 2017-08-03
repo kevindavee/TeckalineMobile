@@ -74,12 +74,6 @@ import com.android.build.OutputFile
 
 apply from: "../../node_modules/react-native/react.gradle"
 
-project.ext.vectoricons = [
-        iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf' ] // Name of the font files you want to copy
-]
-
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
-
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -109,14 +103,6 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
-    signingConfigs {
-        release {
-            storeFile rootProject.file("app/teckaline-release-key.keystore")
-            storePassword System.getProperty("TECKALINE_RELEASE_STORE_PASSWORD")
-            keyAlias System.getProperty("TECKALINE_RELEASE_KEY_ALIAS")
-            keyPassword System.getProperty("TECKALINE_RELEASE_KEY_PASSWORD")
-        }
-    }
     splits {
         abi {
             reset()
@@ -129,7 +115,6 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
