@@ -112,9 +112,9 @@ android {
     signingConfigs {
         release {
             storeFile rootProject.file("app/teckaline-release-key.keystore")
-            storePassword system.getProperty("TECKALINE_RELEASE_STORE_PASSWORD")
-            keyAlias system.getProperty("TECKALINE_RELEASE_KEY_ALIAS")
-            keyPassword system.getProperty("TECKALINE_RELEASE_KEY_PASSWORD")
+            storePassword System.getProperty("TECKALINE_RELEASE_STORE_PASSWORD")
+            keyAlias System.getProperty("TECKALINE_RELEASE_KEY_ALIAS")
+            keyPassword System.getProperty("TECKALINE_RELEASE_KEY_PASSWORD")
         }
     }
     splits {
