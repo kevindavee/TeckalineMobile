@@ -40,8 +40,8 @@ export const registerUser = ({ email, password, company, fullName }) => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((user) => {
                 const dbRoot = firebase.database().ref();
-                dbRoot.child('profiles')
-                    .push({ fullName, company, uid: user.uid })
+                dbRoot.child(`/profiles/${user.uid}`)
+                    .set({ fullName, company })
                     .then(() => {
                         Alert.alert('Success', 'Berhasil mendaftar ! Silahkan cek email anda untuk email verifikasi');
                         const { currentUser } = firebase.auth();

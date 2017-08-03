@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import firebase from 'firebase';
 import { PROFILE_FULLNAME_CHANGE, PROFILE_COMPANY_CHANGE,
          INITIAL_PROFILE, FETCH_PROFILE, PROFILE_SAVE_CHANGES,
@@ -9,16 +8,10 @@ export const initialProfile = () => {
 
     return (dispatch) => {
         dispatch({ type: FETCH_PROFILE });
-        firebase.database().ref('/profiles/').orderByChild('uid').equalTo(currentUser.uid)
+        firebase.database().ref(`/profiles/${currentUser.uid}`)
             .on('value', snapshot => {
-                const email = currentUser.email;
-                const profile = _.map(snapshot.val(), (val, uid) => {
-                    return { ...val, uid };
-                });
-                const fullName = profile[0].fullName;
-                const company = profile[0].company;
-                const uid = profile[0].uid;
-                const payload = { email, fullName, company, uid };
+                const { fullName, company } = snapshot.val();
+                const payload = { email: currentUser.email, fullName, company };
                 dispatch({ type: INITIAL_PROFILE, payload });
             });
     };
@@ -38,11 +31,13 @@ export const profileCompanyChange = (text) => {
     };
 };
 
-export const profileSaveChanges = ({ fullName, company, uid }) => {
+export const profileSaveChanges = ({ fullName, company }) => {
+    const { currentUser } = firebase.auth();
+
     return (dispatch) => {
         dispatch({ type: PROFILE_SAVE_CHANGES });
 
-        firebase.database().ref(`/profiles/${uid}/`)
+        firebase.database().ref(`/profiles/${currentUser.uid}`)
             .update({ fullName, company })
             .then(() => {
                 dispatch({ type: PROFILE_CHANGES_SUCCESS });

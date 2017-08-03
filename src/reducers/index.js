@@ -7,6 +7,7 @@ import ProjectHistoryReducer from './ProjectHistoryReducer';
 import RegisterReducer from './RegisterReducer';
 import ProfileReducer from './ProfileReducer';
 import ChangePasswordReducer from './ChangePasswordReducer';
+import ProjectListReducer from './ProjectListReducer';
 
 export default combineReducers({
     login: LoginReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
     rewardsForm: RewardFormReducer,
     projectHistory: ProjectHistoryReducer,
     profile: ProfileReducer,
-    changePassword: ChangePasswordReducer 
+    changePassword: ChangePasswordReducer,
+    projectList: ProjectListReducer
 });

@@ -35,3 +35,8 @@ export const UPDATE_PASSWORD = 'update_password';
 export const CHANGE_PASSWORD_SUCCESS = 'change_password_success';
 export const CHANGE_PASSWORD_FAIL = 'change_password_fail';
 export const PASSWORD_INITIAL_SCREEN = 'password_initial_screen';
+
+export const PROJECT_LIST_FETCH_SUCCESS = 'project_list_fetch_success';
+export const PROJECT_LIST_VALIDATED = 'project_list_validated';
+export const PROJECT_LIST_VALIDATING = 'project_list_validating';
+export const PROJECT_LIST_VALIDATING_ERROR = 'project_list_validating_error';

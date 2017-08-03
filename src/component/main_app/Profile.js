@@ -33,8 +33,8 @@ class Profile extends Component {
     }
 
     onChangeProfile() {
-        const { fullName, company, uid } = this.props;
-        this.props.profileSaveChanges({ fullName, company, uid });
+        const { fullName, company } = this.props;
+        this.props.profileSaveChanges({ fullName, company });
     }
 
     onLogOut() {
@@ -147,9 +147,9 @@ class Profile extends Component {
 }
 
 const mapStateToProps = ({ profile }) => {
-    const { fullName, company, loading, email, loadingSubmit, uid } = profile;
+    const { fullName, company, loading, email, loadingSubmit } = profile;
 
-    return { fullName, company, loading, email, loadingSubmit, uid };
+    return { fullName, company, loading, email, loadingSubmit };
 };
 
 export default connect(mapStateToProps, 

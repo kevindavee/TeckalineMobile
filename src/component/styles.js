@@ -30,6 +30,14 @@ const styles = {
     inputLabelStyle: {
         fontSize: 13,
         flex: 1
+    },
+    drawerIconStyle: {
+        flexDirection: 'column',
+        flex: 2
+    },
+    drawerTextStyle: {
+        flexDirection: 'column',
+        flex: 8
     }
 };
 

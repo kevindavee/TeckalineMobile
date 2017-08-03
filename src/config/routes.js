@@ -10,6 +10,7 @@ import FormReward from '../component/main_app/FormReward';
 import ProjectHistory from '../component/main_app/ProjectHistory';
 import Profile from '../component/main_app/Profile';
 import ChangePassword from '../component/main_app/ChangePassword';
+import ProjectList from '../component/admin/ProjectList';
 
 const Routes = (props) => {
     return (
@@ -31,7 +32,8 @@ const Routes = (props) => {
             <Scene key="profile" hideNavBar type={ActionConst.RESET}>
                 <Scene key="changeprofile" component={Profile} />
                 <Scene key="changepassword" component={ChangePassword} />
-            </Scene>    
+            </Scene>
+            <Scene key="projectlist" hideNavBar type={ActionConst.RESET} component={ProjectList} />    
             
         </Router>
     );

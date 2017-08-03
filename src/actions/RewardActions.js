@@ -13,16 +13,20 @@ export const projectInputChange = (text) => {
 export const projectSubmit = ({ project }) => {
     console.log('project submitted');
     const { currentUser } = firebase.auth();
-    const currentDate = new Date().toLocaleDateString();
+    const currentDate = new Date().toLocaleDateString();        
 
     return (dispatch) => {
         dispatch({ type: PROJECT_SUBMIT });
 
-        firebase.database().ref().child('projects')
-            .push({ project, date: currentDate, uid: currentUser.uid })
-            .then(() => {
-                dispatch({ type: PROJECT_SUBMIT_SUCCESS });
-                Alert.alert('Berhasil', 'Project anda berhasil di daftar kan !');
+        firebase.database().ref(`/profiles/${currentUser.uid}/`)
+            .on('value', snapshot => {
+                const { fullName, company } = snapshot.val();
+                firebase.database().ref().child('projects')
+                .push({ project, date: currentDate, uid: currentUser.uid, fullName, company })
+                .then(() => {
+                    dispatch({ type: PROJECT_SUBMIT_SUCCESS });
+                    Alert.alert('Berhasil', 'Project anda berhasil di daftar kan !');
+                });
             });
     };
 };

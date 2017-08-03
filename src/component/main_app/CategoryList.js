@@ -34,7 +34,6 @@ class CategoryList extends Component {
                 <List 
                     dataArray={this.props.categories} 
                     renderRow={this.renderRow}
-
                 />
             ); 
         }
