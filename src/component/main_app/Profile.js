@@ -8,7 +8,7 @@ import firebase from 'firebase';
 import { CustomHeader, MyDrawer } from '../commons';
 import { DRAWER_MENU } from '../commons/ButtonConst';
 import { profileFullNameChange, profileCompanyChange, initialProfile,
-         profileSaveChanges } from '../../actions';
+         profileSaveChanges, profilePhoneNumberChange } from '../../actions';
 import styles from '../styles';
 
 const { UIManager } = NativeModules;
@@ -33,8 +33,12 @@ class Profile extends Component {
     }
 
     onChangeProfile() {
-        const { fullName, company } = this.props;
-        this.props.profileSaveChanges({ fullName, company });
+        const { fullName, company, phoneNumber } = this.props;
+        this.props.profileSaveChanges({ fullName, company, phoneNumber });
+    }
+
+    onPhoneNumberChange(number) {
+        this.props.profilePhoneNumberChange(number);
     }
 
     onLogOut() {
@@ -71,6 +75,16 @@ class Profile extends Component {
                         disabled
                         style={{ flex: 2 }}
                         placeholder={this.props.email}
+                    />
+                </Item>
+                <Item>
+                    <Label style={styles.inputLabelStyle}>No Telp.</Label>
+                    <Input 
+                        placeholder="0812345678"
+                        keyboardType="phone-pad"
+                        style={{ flex: 2 }}
+                        onChangeText={this.onPhoneNumberChange.bind(this)}
+                        value={this.props.phoneNumber}
                     />
                 </Item>
                 <Item>
@@ -147,13 +161,14 @@ class Profile extends Component {
 }
 
 const mapStateToProps = ({ profile }) => {
-    const { fullName, company, loading, email, loadingSubmit } = profile;
+    const { fullName, company, loading, email, loadingSubmit, phoneNumber } = profile;
 
-    return { fullName, company, loading, email, loadingSubmit };
+    return { fullName, company, loading, email, loadingSubmit, phoneNumber };
 };
 
 export default connect(mapStateToProps, 
                     { profileCompanyChange, 
                       profileFullNameChange,
                       initialProfile,
-                      profileSaveChanges })(Profile);
+                      profileSaveChanges,
+                      profilePhoneNumberChange })(Profile);

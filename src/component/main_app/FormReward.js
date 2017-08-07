@@ -85,6 +85,32 @@ class FormReward extends Component {
                                 />
                             </Item>
                             {this.renderButton()}
+                            <Text style={{ textAlign: 'center', paddingTop: 15, paddingBottom: 15, fontWeight: 'bold' }}>Reward Program Teckaline Indonesia</Text>
+                            <Text style={{ fontSize: 13, paddingBottom: 15 }}>
+                                Reward Program Teckaline Indonesia adalah marketing program yang disediakan khusus bagi
+                                para consultant yang menggunakan Teckaline dalam spesifikasi yang mereka buat, atau para person in contact
+                                kontraktor/owner yang memilih Teckaline sebagai equivalent, sebagai apresiasi Teckaline Indonesia kepada user-nya.
+                            </Text>
+                            <Text style={{ fontSize: 13, paddingBottom: 15 }}>
+                                {
+                                    'Cara mengikuti program ini adalah dengan mengisi nama project, yang memenuhi sudah syarat dan ketentuan yang berlaku. '
+                                }
+                            </Text>
+                            <Text style={{ fontSize: 13, paddingBottom: 15 }}>
+                                {`Syarat dan Ketentuan:\n
+1. Program ini hanya berlaku untuk konsultan yang menggunakan Teckaline sebagai spesifikasi yang mereka buat\n
+2. Program ini berlaku untuk Kontraktor / Owner yang memilih Teckaline sebagai equivalent\n
+3. Reward program dapat di reimburse setelah menjadi SPK/Kontrak\n
+4. Konsultan / Kontraktor / Owner harus mengisi dengan project yang real dan bukan fiktif, ataupun mencantumkan project yang tidak sesuai dengan syarat mengikuti program ini\n
+5. Pengguna aplikasi yang melakukan spam pada form ini, akan langsung kami blacklist dan kami banned/non-aktif account nya\n
+6. Program ini tidak berlaku untuk karyawan Teckaline Indonesia`
+                                }
+                            </Text>
+                            <Text style={{ fontSize: 13, paddingBottom: 15 }}>
+                                {
+                                    'Untuk informasi atau pun pertanyaan lebih lanjut, bisa hubungi ke whatsapp 0811990342'
+                                }
+                            </Text>
                         </Form>
                     </Content>
                 </Container>

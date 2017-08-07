@@ -23,6 +23,7 @@ export const INITIAL_REGISTER_SCREEN = 'initial_register_screen';
 
 export const PROFILE_FULLNAME_CHANGE = 'profile_fullname_change';
 export const PROFILE_COMPANY_CHANGE = 'profile_company_change';
+export const PROFILE_PHONE_NUMBER_CHANGE = 'profile_phone_number_change';
 export const PROFILE_SAVE_CHANGES = 'profile_save_changes';
 export const PROFILE_CHANGES_SUCCESS = 'profile_change_success';
 export const PROFILE_CHANGES_FAIL = 'profile_change_fail';
